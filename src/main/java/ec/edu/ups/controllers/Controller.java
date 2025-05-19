@@ -1,12 +1,17 @@
 package ec.edu.ups.controllers;
 
 import ec.edu.ups.models.*;
+import ec.edu.ups.views.MenuPrincipal;
 import ec.edu.ups.views.ShowConsole;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class Controller {
+public class Controller  {
+
     private ShowConsole showConsole;
     private ListsController listsController;
     private Busqueda busqueda = new Busqueda();
@@ -17,46 +22,10 @@ public class Controller {
     }
 
     public void start() {
-        int opcion = 0;
-        do{
-            opcion=showConsole.showMenuPrincipal();
-            switch (opcion) {
-                case 1:
-                    op1RegistrarProveedor();
-                    break;
-                case 2:
-                    op2RegistrarProducto();
-                    break;
-                case 3:
-                    op3RegistrarSolicitud();
-                    break;
-                case 4:
-                    op4ListarProveedores();
-                    break;
-                case 5:
-                    op5ListarProductos();
-                    break;
-                case 6:
-                    op6ListarSolicitudes();
-                    break;
-                case 7:
-                   op7BuscarProveedorId();
-                    break;
-                case 8:
-                    op8BuscarPorNombre();
-                    break;
-                case 9:
-                   op9BuscarPorNumero();
-                    break;
-                case 10:
-                    op10AprobarRechazar();
-                    break;
-                case 11:
-                    showConsole.showMessage("\n---- Ha seleccionado la opcion 11. \n\t-------------- Salir del programa");
-                    break;
-            }
-        }while(opcion!=11);
+        MenuPrincipal menu = new MenuPrincipal(listsController);
+        menu.setVisible(true);
     }
+
 
 
     public  void op1RegistrarProveedor() {

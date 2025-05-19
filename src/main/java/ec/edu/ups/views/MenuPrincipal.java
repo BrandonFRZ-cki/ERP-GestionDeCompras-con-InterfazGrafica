@@ -1,5 +1,7 @@
 package ec.edu.ups.views;
 
+import ec.edu.ups.controllers.ListsController;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -23,8 +25,10 @@ public class MenuPrincipal extends Frame {
     private Panel header;
     private Panel container;
 
-    public MenuPrincipal() {
 
+    private ListsController listsController;
+    public MenuPrincipal(ListsController listsController) {
+        this.listsController = listsController;
         setLayout(null);
         setSize(600,600);
         setTitle("MenuPrincipal");
@@ -80,7 +84,7 @@ public class MenuPrincipal extends Frame {
 
         Registro registro = new Registro();
         Listado listado = new Listado();
-        Busqueda  buscar = new Busqueda();
+        Busqueda  buscar = new Busqueda(listsController);
         Aprobacion aprobacion = new Aprobacion();
 
         bSalir.addActionListener(new ActionListener() {
