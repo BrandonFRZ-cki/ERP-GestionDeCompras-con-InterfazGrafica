@@ -240,24 +240,24 @@ public class Controller {
     }
 
     public void op4ListarProveedores() {
-        showConsole.showMessage("\n---- Ha seleccionado la opcion 4. \n\tListar Proveedores");
+        showConsole.showMessage("\n---- Ha seleccionado la opcion 4. \n\tListado Proveedores");
         showConsole.showListaProveedores(listsController.getProductos());
     }
 
     public void op5ListarProductos() {
-        showConsole.showMessage("\n---- Ha seleccionado la opción 5. \n\tListar Productos");
+        showConsole.showMessage("\n---- Ha seleccionado la opción 5. \n\tListado Productos");
         showConsole.showListaProductos(listsController.getProductos());
     }
 
     public void op6ListarSolicitudes() {
-        showConsole.showMessage("\n---- Ha seleccionado la opcion 6. \n\tListar Solicitud de compra");
+        showConsole.showMessage("\n---- Ha seleccionado la opcion 6. \n\tListado Solicitud de compra");
         showConsole.showListaSolicitudes(listsController.getSolicitudes());
 
     }
 
     public void op7BuscarProveedorId(){
 
-        showConsole.showMessage("\n---- Ha seleccionado la opcion 7. \n\t-------------- Buscar Proveedor por ID ");
+        showConsole.showMessage("\n---- Ha seleccionado la opcion 7. \n\t-------------- Busqueda Proveedor por ID ");
         String id =showConsole.ingresoId("Proveedor a buscar");
         Proveedor proveedorTemp = busqueda.busquedaPorId(listsController.getProductos(),id);
         if (proveedorTemp == null){
@@ -269,7 +269,7 @@ public class Controller {
     }
 
     public void op8BuscarPorNombre(){
-        showConsole.showMessage("\n---- Ha seleccionado la opcion 8. \n\t-------------- Buscar Producto por nombre ");
+        showConsole.showMessage("\n---- Ha seleccionado la opcion 8. \n\t-------------- Busqueda Producto por nombre ");
         String nombre = showConsole.ingresoTexto2("Producto a buscar: ");
         Producto productoEn = busqueda.productoPorNombre(listsController.getProductos(),nombre);
         if (productoEn == null){
@@ -280,7 +280,7 @@ public class Controller {
     }
 
     public void op9BuscarPorNumero(){
-        showConsole.showMessage("\n---- Ha seleccionado la opcion 9. \n\t-------------- Buscar Solicitud por numero");
+        showConsole.showMessage("\n---- Ha seleccionado la opcion 9. \n\t-------------- Busqueda Solicitud por numero");
         int numero = showConsole.ingresoNumero("Ingrese numero a buscar");
         SolicitudCompra solicitudEncon = busqueda.solicitudPorNumero(listsController.getSolicitudes(),numero);
         if (solicitudEncon == null){
@@ -291,7 +291,7 @@ public class Controller {
     }
 
     public void op10AprobarRechazar() {
-        showConsole.showMessage("\n---- Ha seleccionado la opción 10. \n\tAprobar / Rechazar Solicitud de compra");
+        showConsole.showMessage("\n---- Ha seleccionado la opción 10. \n\tAprobacion / Rechazar Solicitud de compra");
 
         // Solicitar la contraseña
         String psswIngresada = showConsole.ingresoPssw();
@@ -325,8 +325,8 @@ public class Controller {
             return;
         }
 
-        // Aprobar o rechazar
-        int opcion = showConsole.ingresoNumero("Seleccione:\n1. Aprobar\n2. Rechazar\nOpción: ");
+        // Aprobacion o rechazar
+        int opcion = showConsole.ingresoNumero("Seleccione:\n1. Aprobacion\n2. Rechazar\nOpción: ");
         if (opcion == 1) {
             solicitudSeleccionada.setEstado(EstadoSolicitud.APROBADA);
             showConsole.showMessage("La solicitud ha sido APROBADA.");
