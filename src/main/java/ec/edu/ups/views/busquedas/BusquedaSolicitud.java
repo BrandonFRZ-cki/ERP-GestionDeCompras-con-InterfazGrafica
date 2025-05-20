@@ -1,8 +1,8 @@
 package ec.edu.ups.views.busquedas;
 
-import ec.edu.ups.controllers.ListsController;
-import ec.edu.ups.models.Proveedor;
 import ec.edu.ups.controllers.Busqueda;
+import ec.edu.ups.controllers.ListsController;
+import ec.edu.ups.models.SolicitudCompra;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,8 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class BusquedaProveedor extends Frame {
-
+public class BusquedaSolicitud extends Frame {
     //Colores propuestos
     private Color azulPersonalizado = new Color(0,100,128);
     // Textos
@@ -28,16 +27,16 @@ public class BusquedaProveedor extends Frame {
     private Busqueda busqueda = new Busqueda();
     private Resultado resultado;
 
-    public BusquedaProveedor(ListsController listsController) {
+    public BusquedaSolicitud(ListsController listsController) {
         this.listsController = listsController;
 
         setLayout(null);
-        setSize(400,300);
+        setSize(400, 300);
         setTitle("Buscar Proveedor");
         setLocationRelativeTo(null);
         setResizable(false);
 
-        lbVentana = new Label("Buscar Proveedor");
+        lbVentana = new Label("Buscar Numero");
         lbVentana.setFont(new Font("Arial", Font.BOLD, 20));
         lbVentana.setForeground(Color.white);
 
@@ -45,21 +44,21 @@ public class BusquedaProveedor extends Frame {
         header = new Panel();
         header.setBackground(azulPersonalizado);
         header.setLayout(null);
-        header.setBounds(0,0,400,100);
+        header.setBounds(0, 0, 400, 100);
         header.add(lbVentana);
-        lbVentana.setBounds(20,15,600,100);
+        lbVentana.setBounds(20, 15, 600, 100);
 
         bIr = new Button("ir");
-        Label indicacion = new Label("Ingrece el ID:");
+        Label indicacion = new Label("Ingrece el numero:");
         txtBusqueda = new TextField();
 
         container = new Panel();
-        container.setBounds(0,100,400,200);
+        container.setBounds(0, 100, 400, 200);
         container.setLayout(null);
 
-        indicacion.setBounds(100,10,200,25);
-        txtBusqueda.setBounds(100,40,200,30);
-        bIr.setBounds(100,100,200,40);
+        indicacion.setBounds(100, 10, 200, 25);
+        txtBusqueda.setBounds(100, 40, 200, 30);
+        bIr.setBounds(100, 100, 200, 40);
 
         container.add(bIr);
         container.add(indicacion);
@@ -82,19 +81,16 @@ public class BusquedaProveedor extends Frame {
         bIr.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id = txtBusqueda.getText();
-                Proveedor proveedorTemp = busqueda.busquedaPorId(listsController.getProductos(),id);
-                resultado.dispose();
-                if (proveedorTemp == null){
-                    System.out.println("No se a encontrado el provedor");
+                int numero = Integer.parseInt(txtBusqueda.getText());
+                SolicitudCompra solicitudEncon = busqueda.solicitudPorNumero(listsController.getSolicitudes(),numero);
+                if (solicitudEncon == null){
+                    System.out.println("No se a encontrado la solicitud");
                     resultado.noEncontrado();
                 }else {
-                    System.out.println(proveedorTemp);
-                    resultado.mostrarResultado(proveedorTemp);
+                    System.out.println(solicitudEncon);
+                    resultado.mostrarResultado(solicitudEncon);
                 }
             }
         });
-
     }
-
 }

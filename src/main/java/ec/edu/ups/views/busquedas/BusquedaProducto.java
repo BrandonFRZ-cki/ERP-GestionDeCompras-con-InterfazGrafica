@@ -1,8 +1,8 @@
 package ec.edu.ups.views.busquedas;
 
-import ec.edu.ups.controllers.ListsController;
-import ec.edu.ups.models.Proveedor;
 import ec.edu.ups.controllers.Busqueda;
+import ec.edu.ups.controllers.ListsController;
+import ec.edu.ups.models.Producto;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class BusquedaProveedor extends Frame {
-
+public class BusquedaProducto extends Frame {
     //Colores propuestos
     private Color azulPersonalizado = new Color(0,100,128);
+
     // Textos
     private Label lbVentana;
     //Ingreso
@@ -28,16 +28,16 @@ public class BusquedaProveedor extends Frame {
     private Busqueda busqueda = new Busqueda();
     private Resultado resultado;
 
-    public BusquedaProveedor(ListsController listsController) {
+    public BusquedaProducto(ListsController listsController){
         this.listsController = listsController;
 
         setLayout(null);
         setSize(400,300);
-        setTitle("Buscar Proveedor");
+        setTitle("Buscar Nombre");
         setLocationRelativeTo(null);
         setResizable(false);
 
-        lbVentana = new Label("Buscar Proveedor");
+        lbVentana = new Label("Buscar Nombre");
         lbVentana.setFont(new Font("Arial", Font.BOLD, 20));
         lbVentana.setForeground(Color.white);
 
@@ -50,7 +50,7 @@ public class BusquedaProveedor extends Frame {
         lbVentana.setBounds(20,15,600,100);
 
         bIr = new Button("ir");
-        Label indicacion = new Label("Ingrece el ID:");
+        Label indicacion = new Label("Ingrece el nombre:");
         txtBusqueda = new TextField();
 
         container = new Panel();
@@ -82,19 +82,16 @@ public class BusquedaProveedor extends Frame {
         bIr.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id = txtBusqueda.getText();
-                Proveedor proveedorTemp = busqueda.busquedaPorId(listsController.getProductos(),id);
-                resultado.dispose();
-                if (proveedorTemp == null){
-                    System.out.println("No se a encontrado el provedor");
+                String nombre = txtBusqueda.getText();
+                Producto productoEn = busqueda.productoPorNombre(listsController.getProductos(),nombre);
+                if (productoEn == null){
+                    System.out.println("No se ha encontrado el producto");
                     resultado.noEncontrado();
                 }else {
-                    System.out.println(proveedorTemp);
-                    resultado.mostrarResultado(proveedorTemp);
+                    System.out.println(productoEn);
+                    resultado.mostrarResultado(productoEn);
                 }
             }
         });
-
     }
-
 }

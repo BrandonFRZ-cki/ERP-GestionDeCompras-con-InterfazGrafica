@@ -1,7 +1,9 @@
 package ec.edu.ups.views;
 
 import ec.edu.ups.controllers.ListsController;
+import ec.edu.ups.views.busquedas.BusquedaProducto;
 import ec.edu.ups.views.busquedas.BusquedaProveedor;
+import ec.edu.ups.views.busquedas.BusquedaSolicitud;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -81,6 +83,20 @@ public class    Busqueda extends Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 proveedorID.setVisible(true);
+            }
+        });
+        BusquedaProducto busquedaNombre = new BusquedaProducto(listsController);
+        bBuscarProducto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                busquedaNombre.setVisible(true);
+            }
+        });
+        BusquedaSolicitud solicitudNumero = new BusquedaSolicitud(listsController);
+        bBuscarSulicitud.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                solicitudNumero.setVisible(true);
             }
         });
     }
