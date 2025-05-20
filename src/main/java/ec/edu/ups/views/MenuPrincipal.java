@@ -83,7 +83,7 @@ public class MenuPrincipal extends Frame {
         //--------------------- Funcionalidades Botones
 
         Registro registro = new Registro();
-        Listado listado = new Listado();
+        Listado listado = new Listado(listsController);
         Busqueda  buscar = new Busqueda(listsController);
         Aprobacion aprobacion = new Aprobacion();
 
@@ -121,7 +121,7 @@ public class MenuPrincipal extends Frame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                dispose();
+                System.exit(0);
             }
         });
     }

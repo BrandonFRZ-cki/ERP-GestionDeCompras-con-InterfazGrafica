@@ -118,7 +118,7 @@ public class SolicitudCompra implements Calculable {
         for (DetalleCompra detalle : detalles) {
             total += detalle.calcularCostoTotal();
         }
-        return total;
+        return Math.round(total * 100.0) / 100.0;
     }
 
 
@@ -136,21 +136,10 @@ public class SolicitudCompra implements Calculable {
 
     @Override
     public String toString() {
-        return    "\n=================== Solicitud de Compra ======================" +
-                "\n\t = Fecha-----------------: " + (fechaCreacion != null ? new SimpleDateFormat("dd/MM/yyyy").format(fechaCreacion.getTime()) : "null") +
-                "\n\t = Numero de Solicitud---: " + idSolicitud +
-                "\n\t = Solicitante-----------: " + solicitante +
-                "\n\t = Estado----------------: " + estado +
-                "\n\t-------------------------------------------------------------"+
-                "\n\t - Motivo  : " + motivo +
-                "\n\t - Detalle : " + detalleMaterialesSolcitados +
-                "\n\t+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"+
-                "\n\t " + detalles +
-                "\n\t-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"+
-                "\n\t observaciones : " + observaciones+
-                "\n\t-------------------------------------------------------------"+
-                "\n\t Total = " + total+
-                "\n\t-------------------------------------------------------------"
+        return
+                "\n | Numero: "+ idSolicitud+ "  | " + (fechaCreacion != null ? new SimpleDateFormat("dd/MM/yyyy").format(fechaCreacion.getTime()) : "null") + " | " + estado + " | "+  detalleMaterialesSolcitados +" | Precio: $ "+ calcularCostoTotal() +
+                "\n\n-------------------------------------------------------------------------------------------------------------------------------------\n"
+
         ;
 
     }
