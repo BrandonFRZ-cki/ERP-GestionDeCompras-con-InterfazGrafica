@@ -41,8 +41,8 @@ public class Proveedor extends Persona {
     @Override
     public String toString() {
         return  super.toString() +
-                "\n\t\t\t◌ DetalleProvedor : " + detalleProvedor +
-                "\n\t\t\t◌ Telefono : " + telefono+
-                "\n\t\t\t◌ Direccion : " + direccion;
+                "\n\t◌ Detalle   : " + detalleProvedor +
+                "\n\t◌ Telefono  : " + telefono+
+                "\n\t◌ Direccion : " + direccion;
     }
 }

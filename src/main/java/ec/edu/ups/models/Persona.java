@@ -55,8 +55,8 @@ public class Persona {
 
     @Override
     public String toString() {
-        return  "\n\t\t\t◌ Identificacion='" + identificacion +
-                "\n\t\t\t◌ nombre='" + nombre +
-                "\n\t\t\t◌ apellido='" + apellido ;
+        return  "\n\t◌ Cedula    : " + identificacion +
+                "\n\t◌ Nombre    : " + nombre +
+                "\n\t◌ Apellido  : " + apellido ;
     }
 }

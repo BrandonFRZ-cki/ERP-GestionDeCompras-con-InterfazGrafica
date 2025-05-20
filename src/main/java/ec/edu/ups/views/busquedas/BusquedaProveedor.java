@@ -80,11 +80,11 @@ public class BusquedaProveedor extends Frame {
         busqueda = new Busqueda();
         resultado = new Resultado();
         bIr.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = txtBusqueda.getText();
                 Proveedor proveedorTemp = busqueda.busquedaPorId(listsController.getProductos(),id);
+                resultado.dispose();
                 if (proveedorTemp == null){
                     System.out.println("No se a encontrado el provedor");
                     resultado.noEncontrado();
