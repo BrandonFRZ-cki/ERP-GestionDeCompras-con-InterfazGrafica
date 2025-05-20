@@ -25,13 +25,14 @@ public class Resultado extends Frame {
         setResizable(false);
         setVisible(false);
 
+
         lbVentana = new Label("Resultado");
         lbVentana.setFont(new Font("Arial", Font.BOLD, 20));
         lbVentana.setForeground(Color.white);
 
         textArea = new TextArea();
         textArea.setEditable(true);
-        textArea.setBounds(5, 100, 350, 300);
+        textArea.setBounds(0, 100, 400, 300);
         textArea.setText(null);
 
 
@@ -68,8 +69,9 @@ public class Resultado extends Frame {
     public void noEncontrado(){
         lbVentana.setText("No Encontrado");
         header.setBackground(Color.red);
-
-        textArea.setText("Verifica que los datos esten bien ingresados");
+        textArea.setText("\n\n\n\tVerifica los datos ingrsados de la busqueda...");
+        textArea.setEditable(false);
+        add(textArea);
         setVisible(true);
     }
 }

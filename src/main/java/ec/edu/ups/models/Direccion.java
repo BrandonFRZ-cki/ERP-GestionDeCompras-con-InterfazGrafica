@@ -74,11 +74,11 @@ public class Direccion {
 
     @Override
     public String toString() {
-        return  "\n\t\t\t\t◦ Calle Principal  : " + callePrincipal  +
-                "\n\t\t\t\t◦ Calle Segundaria : " + calleSegundaria  +
-                "\n\t\t\t\t◦ Numeracion       : " + numeracion  +
-                "\n\t\t\t\t◦ Ciudad           : " + ciudad  +
-                "\n\t\t\t\t◦ Provincia        : " + provincia  +
-                "\n\t\t\t\t◦ Pais             : " + pais;
+        return  "\n\t\t◦ Calle Principal  : " + callePrincipal  +
+                "\n\t\t◦ Calle Segundaria : " + calleSegundaria  +
+                "\n\t\t◦ Numeracion       : " + numeracion  +
+                "\n\t\t◦ Ciudad           : " + ciudad  +
+                "\n\t\t◦ Provincia        : " + provincia  +
+                "\n\t\t◦ Pais             : " + pais;
     }
 }
