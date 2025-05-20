@@ -71,12 +71,12 @@ public class Producto{
 
     @Override
     public String toString() {
-        return    "\t\t ● Producto:" +
-                "\n\t\t ○ id---------------: " + idProducto +
-                "\n\t\t ○ Nombre-----------: " + nombre +
-                "\n\t\t ○ precioUnitario---: " + precioUnitario +
-                "\n\t\t ○ aplicaIVA--------: " + aplicaIVA +
-                "\n\t\t ○ proveedor--------: " + proveedor +
-        "\n\t-------------------------------------------------------------\n";
+        return    " ● Producto:" +
+                "\n ○ id---------------: " + idProducto +
+                "\n ○ Nombre-----------: " + nombre +
+                "\n ○ precioUnitario---: " + precioUnitario +
+                "\n ○ aplicaIVA--------: " + aplicaIVA +
+                "\n ○ proveedor--------: " + proveedor.getNombre()+" "+proveedor.getApellido()+" | "+ proveedor.getIdentificacion() +" | " + proveedor.getTelefono() +
+        "\n------------------------------------------------------------------------------------------------------------------------------------------------\n";
     }
 }
