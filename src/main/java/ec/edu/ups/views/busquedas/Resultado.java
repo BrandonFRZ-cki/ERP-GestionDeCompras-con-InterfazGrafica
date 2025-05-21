@@ -74,4 +74,12 @@ public class Resultado extends Frame {
         add(textArea);
         setVisible(true);
     }
+    public void contasenaIncorrecta(){
+        lbVentana.setText("Contrasena Incorrecta");
+        header.setBackground(Color.red);
+        textArea.setText("\n\n\n\t Ingrese la contrasena correctamente...");
+        textArea.setEditable(false);
+        add(textArea);
+        setVisible(true);
+    }
 }
