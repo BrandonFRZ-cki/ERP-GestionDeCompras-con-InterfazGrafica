@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class    Busqueda extends Frame {
+public class Busqueda extends Frame {
     //Colores propuestos
     private Color azulPersonalizado = new Color(0,100,128);
 

@@ -1,6 +1,7 @@
 package ec.edu.ups.views;
 
 import ec.edu.ups.controllers.ListsController;
+import ec.edu.ups.models.EstadoSolicitud;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -85,7 +86,7 @@ public class MenuPrincipal extends Frame {
         Registro registro = new Registro();
         Listado listado = new Listado(listsController);
         Busqueda  buscar = new Busqueda(listsController);
-        Aprobacion aprobacion = new Aprobacion();
+        Aprobacion aprobacion = new Aprobacion(EstadoSolicitud.EN_REVISION, listsController);
 
         bSalir.addActionListener(new ActionListener() {
             @Override
@@ -116,6 +117,7 @@ public class MenuPrincipal extends Frame {
             public void actionPerformed(ActionEvent e) {
                 aprobacion.setVisible(true);
             }
+
         });
         // -------------------------- Funcionalidades de Ventana
         addWindowListener(new WindowAdapter() {
