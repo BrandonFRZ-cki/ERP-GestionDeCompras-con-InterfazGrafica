@@ -1,10 +1,9 @@
 package ec.edu.ups.views;
 
-import ec.edu.ups.controllers.Busqueda;
 import ec.edu.ups.controllers.Default;
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.models.EstadoSolicitud;
-import ec.edu.ups.views.aprovaciones.Solicitudes;
+import ec.edu.ups.views.aprovaciones.SolicitudesParaAprobar;
 import ec.edu.ups.views.busquedas.Resultado;
 
 import java.awt.*;
@@ -82,7 +81,7 @@ public class Aprobacion extends Frame {
 
         // ------------------------- Fuicion como tal
         resultado = new Resultado();
-        Solicitudes solicitudes = new Solicitudes(listsController);
+        SolicitudesParaAprobar solicitudes = new SolicitudesParaAprobar(listsController);
         bIr.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -1,14 +1,14 @@
 package ec.edu.ups.views.aprovaciones;
 
 import ec.edu.ups.controllers.ListsController;
+import ec.edu.ups.models.EstadoSolicitud;
 import ec.edu.ups.models.SolicitudCompra;
-import ec.edu.ups.views.VistaSolicitud;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
-public class Solicitudes extends Frame{
+public class SolicitudesParaAprobar extends Frame{
     private ListsController listsController;
 
     //Colores propuestos
@@ -23,20 +23,22 @@ public class Solicitudes extends Frame{
     private TextArea textArea;
 
     //Boton
+
+    private Button bIr;
     private Button bAprobar;
     private Button bRechazar;
     private TextField tfSolicitud;
 
-    public Solicitudes(ListsController listsController) {
+    public SolicitudesParaAprobar(ListsController listsController) {
         this.listsController = listsController;
 
-        setTitle("Listado");
+        setTitle("Solicitudes Para Aprobar");
         setSize(700, 550);
         setLocationRelativeTo(null);
         setLayout(null);
         setResizable(false);
 
-        lbVentana = new Label("Listado Solicitudes");
+        lbVentana = new Label("Solicitudes Para Aprobar");
         lbVentana.setFont(new Font("Arial", Font.BOLD, 20));
         lbVentana.setForeground(Color.white);
 
@@ -69,7 +71,7 @@ public class Solicitudes extends Frame{
                 dispose();
             }
         });
-
+        // ------------------------- Fuicion como tal
         bAprobar = new Button("Aprobar");
         bRechazar = new Button("Rechazar");
         tfSolicitud = new TextField();
@@ -105,6 +107,38 @@ public class Solicitudes extends Frame{
         add(bAprobar);
         add(bRechazar);
 
-    }
+        bAprobar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int idSolicitud = Integer.parseInt(tfSolicitud.getText());
+                SolicitudCompra solicitudSeleccionada = null;
+                for (SolicitudCompra solicitud : listsController.getSolicitudes()) {
+                    if (solicitud.getIdSolicitud() == idSolicitud) {
+                        solicitudSeleccionada = solicitud;
+                        break;
+                    }
+                }
+                if (solicitudSeleccionada != null){
+                    solicitudSeleccionada.setEstado(EstadoSolicitud.APROBADA);
+                }
 
+            }
+        });
+        bRechazar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int idSolicitud = Integer.parseInt(tfSolicitud.getText());
+                SolicitudCompra solicitudSeleccionada = null;
+                for (SolicitudCompra solicitud : listsController.getSolicitudes()) {
+                    if (solicitud.getIdSolicitud() == idSolicitud) {
+                        solicitudSeleccionada = solicitud;
+                        break;
+                    }
+                }
+                if (solicitudSeleccionada != null){
+                    solicitudSeleccionada.setEstado(EstadoSolicitud.RECHAZADA);
+                }
+            }
+        });
+    }
 }

@@ -274,7 +274,7 @@ public class Controller  {
         }
 
         // Mostrar solicitudes
-        showConsole.showMessage("\nSolicitudes disponibles:");
+        showConsole.showMessage("\nSolicitudesParaAprobar disponibles:");
         for (SolicitudCompra solicitud : listsController.getSolicitudes()) {
             System.out.println("ID: " + solicitud.getIdSolicitud() + " | Estado: " + solicitud.getEstado());
         }
