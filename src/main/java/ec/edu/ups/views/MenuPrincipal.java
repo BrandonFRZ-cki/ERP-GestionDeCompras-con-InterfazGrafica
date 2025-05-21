@@ -116,6 +116,7 @@ public class MenuPrincipal extends Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 aprobacion.setVisible(true);
+                aprobacion.getTxtContrasena().setText("");
             }
 
         });

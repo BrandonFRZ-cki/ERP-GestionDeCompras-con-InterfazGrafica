@@ -20,7 +20,7 @@ public class Aprobacion extends Frame {
     // Textos
     private Label lbVentana;
     //Ingreso
-    private TextField txtBusqueda;
+    private TextField txtContrasena;
     //Botones
     private Button bIr;
     //Paneles
@@ -29,7 +29,6 @@ public class Aprobacion extends Frame {
 
     private EstadoSolicitud estadoSolicitud;
     private ListsController listsController;
-    private Busqueda busqueda = new Busqueda();
     private Resultado resultado;
 
     public Aprobacion (EstadoSolicitud estadoSolicitud, ListsController listsController){
@@ -55,19 +54,20 @@ public class Aprobacion extends Frame {
 
         bIr = new Button("ir");
         Label indicacion = new Label("Ingrece la contrasena:");
-        txtBusqueda = new TextField();
+        txtContrasena = new TextField();
+
 
         container = new Panel();
         container.setBounds(0,100,400,200);
         container.setLayout(null);
 
         indicacion.setBounds(100,10,200,25);
-        txtBusqueda.setBounds(100,40,200,30);
+        txtContrasena.setBounds(100,40,200,30);
         bIr.setBounds(100,100,200,40);
 
         container.add(bIr);
         container.add(indicacion);
-        container.add(txtBusqueda);
+        container.add(txtContrasena);
 
         add(header);
         add(container);
@@ -81,25 +81,30 @@ public class Aprobacion extends Frame {
         });
 
         // ------------------------- Fuicion como tal
-        busqueda = new Busqueda();
         resultado = new Resultado();
+        Solicitudes solicitudes = new Solicitudes(listsController);
         bIr.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String psswIngresada = txtBusqueda.getText().trim();
+                String psswIngresada = txtContrasena.getText().trim();
                 Default ejemplo = new Default();
                 ejemplo.gerenteEjemplo();
                 String psswCorrecto = ejemplo.getGerente().getPssw();
                 System.out.println("Ingresada: '" + psswIngresada + "'");
                 System.out.println("Esperada: '" + ejemplo.getGerente().getPssw() + "'");
                 if (psswIngresada.equals(psswCorrecto)){
-                    Solicitudes solicitudes = new Solicitudes(listsController);
                     solicitudes.setVisible(true);
-                    dispose();
+                    resultado.dispose();
                 }else {
+                    resultado.contasenaIncorrecta();
                     System.out.println("Contraseña incorrecta. Acceso denegado.");
+                    solicitudes.dispose();
                 }
             }
         });
+    }
+
+    public TextField getTxtContrasena() {
+        return txtContrasena;
     }
 }
