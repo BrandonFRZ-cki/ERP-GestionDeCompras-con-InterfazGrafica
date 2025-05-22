@@ -3,6 +3,7 @@ package ec.edu.ups.views.aprovaciones;
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.models.EstadoSolicitud;
 import ec.edu.ups.models.SolicitudCompra;
+import ec.edu.ups.views.listados.ListadoSolicitudes;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class SolicitudesParaAprobar extends Frame{
     private ListsController listsController;
+
 
     //Colores propuestos
     private Color azulPersonalizado = new Color(0,100,128);
@@ -31,6 +33,7 @@ public class SolicitudesParaAprobar extends Frame{
 
     public SolicitudesParaAprobar(ListsController listsController) {
         this.listsController = listsController;
+
 
         setTitle("Solicitudes Para Aprobar");
         setSize(700, 550);
@@ -103,10 +106,12 @@ public class SolicitudesParaAprobar extends Frame{
             }
         });
 
+
         add(tfSolicitud);
         add(bAprobar);
         add(bRechazar);
 
+        ListadoSolicitudes listadoSolicitudes = new ListadoSolicitudes(listsController);
         bAprobar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -120,6 +125,8 @@ public class SolicitudesParaAprobar extends Frame{
                 }
                 if (solicitudSeleccionada != null){
                     solicitudSeleccionada.setEstado(EstadoSolicitud.APROBADA);
+                    actualizarList();
+                    tfSolicitud.setText("");
                 }
 
             }
@@ -137,8 +144,19 @@ public class SolicitudesParaAprobar extends Frame{
                 }
                 if (solicitudSeleccionada != null){
                     solicitudSeleccionada.setEstado(EstadoSolicitud.RECHAZADA);
+                    actualizarList();
+                    tfSolicitud.setText("");
                 }
             }
         });
+        actualizarList();
     }
+    public void actualizarList() {
+        textArea.setText(""); // Limpiar el área
+        List<SolicitudCompra> lista = listsController.getSolicitudes();
+        for (SolicitudCompra solicitud : lista) {
+            textArea.append(solicitud.toString() + "\n");
+        }
+    }
+
 }

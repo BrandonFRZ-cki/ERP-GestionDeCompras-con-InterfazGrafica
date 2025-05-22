@@ -74,6 +74,11 @@ public class ListadoSolicitudes extends Frame {
             public void windowClosing(WindowEvent e) {
                 dispose();
             }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                actualizarList();
+            }
         });
 
         bAcceder = new Button("Acceder");
@@ -92,6 +97,13 @@ public class ListadoSolicitudes extends Frame {
                 vistaSolicitud.setVisible(true);
             }
         });
+    }
+    public void actualizarList() {
+        textArea.setText(""); // Limpiar el área
+        List<SolicitudCompra> lista = listsController.getSolicitudes();
+        for (SolicitudCompra solicitud : lista) {
+            textArea.append(solicitud.toString() + "\n");
+        }
     }
 }
 
