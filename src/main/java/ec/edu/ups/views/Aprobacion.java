@@ -99,6 +99,7 @@ public class Aprobacion extends Frame {
                     System.out.println("Contraseña incorrecta. Acceso denegado.");
                     solicitudes.dispose();
                 }
+                txtContrasena.setText("");
             }
         });
     }
