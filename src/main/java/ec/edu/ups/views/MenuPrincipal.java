@@ -83,7 +83,7 @@ public class MenuPrincipal extends Frame {
 
         //--------------------- Funcionalidades Botones
 
-        Registro registro = new Registro();
+        Registro registro = new Registro(listsController);
         Listado listado = new Listado(listsController);
         Busqueda  buscar = new Busqueda(listsController);
         Aprobacion aprobacion = new Aprobacion(EstadoSolicitud.EN_REVISION, listsController);
