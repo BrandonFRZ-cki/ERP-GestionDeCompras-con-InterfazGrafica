@@ -99,5 +99,6 @@ public class Listado extends Frame {
                 listadoSolicitudes.setVisible(true);
             }
         });
+
     }
 }
