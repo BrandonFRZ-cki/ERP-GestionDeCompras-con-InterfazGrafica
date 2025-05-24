@@ -11,19 +11,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.GregorianCalendar;
 
 public class RegistroSolicitud extends Frame {
     private TextField tfCedSolicitante;
     private TextField tfNombreSolicitante;
     private TextField tfDepartamento;
-    private TextField tfTelefonoProveedor;
-    private TextField tfIdProveedor;
-    private TextField tfCalle1;
-    private TextField tfCalleSec;
-    private TextField tfNumeracion;
-    private TextField tfCiudad;
-    private TextField tfProvincia;
-    private TextField tfPais;
+    private TextField tfFecha;
+    private TextArea taMotivo;
+    private TextArea tfDetalleMat;
+    private TextArea taObservacion;
 
     private TextArea taControl;
     private Button btGuardar;
@@ -37,7 +34,8 @@ public class RegistroSolicitud extends Frame {
     private Label lbVentana;
 
 
-    public RegistroSolicitud(ListsController listsController, String cedula) {
+    public
+    RegistroSolicitud(ListsController listsController, String cedula) {
         this.listsController = listsController;
         this.cedula = cedula;
 
@@ -91,7 +89,7 @@ public class RegistroSolicitud extends Frame {
         Label lbNombreSolicitante = new Label("Nombre:");
         lbNombreSolicitante.setBounds(50, 205, 80, 30);
         add(lbNombreSolicitante);
-        tfNombreSolicitante = new TextField(empleadoSeleccionado.getNombre());
+        tfNombreSolicitante = new TextField(empleadoSeleccionado.getNombre()+" "+empleadoSeleccionado.getApellido());
         tfNombreSolicitante.setEditable(false);
         tfNombreSolicitante.setBounds(150, 205, 200, 30);
         add(tfNombreSolicitante);
@@ -104,78 +102,62 @@ public class RegistroSolicitud extends Frame {
         tfDepartamento.setEditable(false);
         add(tfDepartamento);
 
-        Label lbTelefonoProveedor = new Label("Teléfono:");
-        lbTelefonoProveedor.setBounds(50, 285, 80, 30);
-        add(lbTelefonoProveedor);
-        tfTelefonoProveedor = new TextField();
-        tfTelefonoProveedor.setBounds(150, 285, 200, 30);
-        add(tfTelefonoProveedor);
+        GregorianCalendar gregorianCalendar =  new GregorianCalendar();
+        int year = gregorianCalendar.get(GregorianCalendar.YEAR);
+        int mes = gregorianCalendar.get(GregorianCalendar.MONTH)+1;
+        int dia = gregorianCalendar.get(GregorianCalendar.DAY_OF_MONTH);
+        Label lbFecha = new Label("Fecha:");
+        lbFecha.setBounds(50, 285, 80, 30);
+        add(lbFecha);
+        tfFecha = new TextField(dia+" / "+mes+" / "+year);
+        tfFecha.setBounds(150, 285, 200, 30);
+        tfFecha.setEditable(false);
+        add(tfFecha);
 
-        Label lbDireccion = new Label("Dirección del Proveedor:");
-        lbDireccion.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lbDireccion.setBounds(50, 330, 200, 20);
-        add(lbDireccion);
+        Label lbDetalle = new Label("Detalle:");
+        lbDetalle.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lbDetalle.setBounds(50, 330, 200, 20);
+        add(lbDetalle);
 
-        Label lbCalle1 = new Label("Calle Principal:");
-        lbCalle1.setBounds(50, 360, 100, 20);
-        add(lbCalle1);
-        tfCalle1 = new TextField();
-        tfCalle1.setBounds(150, 360, 200, 30);
-        add(tfCalle1);
+        Label lbMotivo = new Label("Motivo:");
+        lbMotivo.setBounds(25, 360, 100, 20);
+        add(lbMotivo);
+        taMotivo = new TextArea();
+        taMotivo.setBounds(25, 380, 350, 75);
+        add(taMotivo);
 
-        Label lbCalleSec = new Label("Calle Secun...:");
-        lbCalleSec.setBounds(50, 400, 100, 20);
-        add(lbCalleSec);
-        tfCalleSec = new TextField();
-        tfCalleSec.setBounds(150, 400, 200, 30);
-        add(tfCalleSec);
+        Label lbDetalleMaterial = new Label("Detalle Material:");
+        lbDetalleMaterial.setBounds(25, 460, 100, 20);
+        add(lbDetalleMaterial);
+        tfDetalleMat = new TextArea();
+        tfDetalleMat.setBounds(25, 485, 350, 75);
+        add(tfDetalleMat);
 
-        Label lbNumeracion = new Label("Numeracion:");
-        lbNumeracion.setBounds(50, 440, 100, 20);
-        add(lbNumeracion);
-        tfNumeracion = new TextField();
-        tfNumeracion.setBounds(150, 440, 200, 30);
-        add(tfNumeracion);
+        Label lbObservacion = new Label("Observaciones:");
+        lbObservacion.setBounds(25, 560, 100, 20);
+        add(lbObservacion);
 
-        Label lbCiudad = new Label("Ciudad:");
-        lbCiudad.setBounds(50, 480, 100, 20);
-        add(lbCiudad);
-        tfCiudad = new TextField();
-        tfCiudad.setBounds(150, 480, 200, 30);
-        add(tfCiudad);
+        taObservacion = new TextArea();
+        taObservacion.setBounds(25, 580, 350, 75);
+        add(taObservacion);
 
-        Label lbProvincia = new Label("Provincia:");
-        lbProvincia.setBounds(50, 520, 100, 20);
-        add(lbProvincia);
-        tfProvincia = new TextField();
-        tfProvincia.setBounds(150, 520, 200, 30);
-        add(tfProvincia);
-
-        Label lbPais = new Label("Pais:");
-        lbPais.setBounds(50, 560, 100, 20);
-        add(lbPais);
-        tfPais = new TextField();
-        tfPais.setBounds(150, 560, 200, 30);
-        add(tfPais);
-
-        Label lbProducto = new Label("Asignar:");
-        lbProducto.setBounds(50, 600, 100, 20);
-        add(lbProducto);
-        chProducto.setBounds(150, 600, 200, 30);
-        add(chProducto);
-
+        btGuardar = new Button("Agregar Porductos o Paquetes");
+        btGuardar.setBounds(50, 660, 300, 30);
+        add(btGuardar);
 
         taControl = new TextArea();
         taControl.setEditable(false);
-        taControl.setBounds(20,640,360,95);
+        taControl.setBounds(20,700,360,75);
         add(taControl);
 
 
-        btGuardar = new Button("Guardar");
-        btGuardar.setBounds(150, 740, 100, 30);
-        add(btGuardar);
-
 
         //setVisible(true);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
     }
 }
