@@ -80,7 +80,7 @@ public class  Registro extends Frame {
         //-------------------------- Funcionalidades Botones
 
         RegistroProducto registroProducto = new RegistroProducto(listsController);
-        RegistroProveedor registroProveedor = new RegistroProveedor();
+        RegistroProveedor registroProveedor = new RegistroProveedor(listsController);
         RegistroSolicitud registroSolicitud = new RegistroSolicitud();
         bProveedor.addActionListener(new ActionListener() {
             @Override
