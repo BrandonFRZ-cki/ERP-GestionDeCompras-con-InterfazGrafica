@@ -111,6 +111,14 @@ public class Default {
                                 new Direccion(
                                         "La Castellana", "Cartagena", "20-3",
                                         "Cuenca", "Azuay", "Ecuador"), "0987654321")));
+        listsController.agregarProducto(
+                new Producto(
+                        "1235",
+                        "Jarra de Cafetera",
+                        10,
+                        true,
+                        new Proveedor()));
+
     }
 
     public void empleadoEjemplo() {
@@ -146,6 +154,7 @@ public class Default {
                 listsController.getProductos().get(1)
         ));
         listsController.agregarSolicitudCompra(solicitud1);
+
 
         // --------------------------------------------------------------- Curitas - Empleado Erick
         SolicitudCompra solicitud2 = new SolicitudCompra(
