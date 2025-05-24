@@ -4,6 +4,7 @@ import java.awt.*;
 
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.models.Producto;
+import ec.edu.ups.models.SolicitudCompra;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -22,8 +23,6 @@ public class ListadoProductos extends Frame {
     //Paneles
     private Panel header;
     private TextArea textArea;
-
-
 
     public ListadoProductos(ListsController listsController) {
         this.listsController = listsController;
@@ -45,15 +44,9 @@ public class ListadoProductos extends Frame {
         header.add(lbVentana);
         lbVentana.setBounds(20,15,700,100);
 
-
         textArea = new TextArea();
         textArea.setBounds(50,150,600,300);
         textArea.setBackground(grisPersonalizado);
-
-        List<Producto> productos = listsController.getProductos();
-        for (Producto producto : productos) {
-            textArea.append(producto.toString() + "\n");
-        }
 
         textArea.setEditable(false);
         add(header);
@@ -65,7 +58,19 @@ public class ListadoProductos extends Frame {
             public void windowClosing(WindowEvent e) {
                 dispose();
             }
+            @Override
+            public void windowActivated(WindowEvent e) {
+                actualizarList();
+            }
         });
+    }
+    public void actualizarList() {
+        textArea.setText("");
+        List<Producto> productos = listsController.getProductos();
+        for (Producto producto : productos) {
+            textArea.append(producto.toString() + "\n");
+        }
+
     }
 }
 

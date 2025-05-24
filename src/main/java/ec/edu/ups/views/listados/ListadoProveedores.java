@@ -4,6 +4,7 @@ import java.awt.*;
 
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.models.Producto;
+import ec.edu.ups.models.SolicitudCompra;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -50,13 +51,6 @@ public class ListadoProveedores extends Frame {
         textArea.setBounds(50,150,600,300);
         textArea.setBackground(grisPersonalizado);
 
-        List<Producto> productos = listsController.getProductos();
-
-        for (int i = 0; i < productos.size(); i++) {
-            if (i == productos.size() - 1 || !productos.get(i).getProveedor().equals(productos.get(i + 1).getProveedor())) {
-                textArea.append(productos.get(i).getProveedor() + "\n\n------------------------------------------------------------------------------------------------------------------------------------------------\n");
-            }
-        }
         textArea.setEditable(false);
         add(header);
         add(textArea);
@@ -67,7 +61,25 @@ public class ListadoProveedores extends Frame {
             public void windowClosing(WindowEvent e) {
                 dispose();
             }
+            @Override
+            public void windowActivated(WindowEvent e) {
+                actualizarList();
+            }
         });
+    }
+    public void actualizarList() {
+        int contador = 0;
+        textArea.setText("");
+        List<Producto> productos = listsController.getProductos();
+        for (int i = 0; i < productos.size(); i++) {
+            if ((i == productos.size() - 1 || !productos.get(i).getProveedor().equals(productos.get(i + 1).getProveedor()))&& productos.get(i).getProveedor().getNombre()!=null ) {
+                textArea.append(productos.get(i).getProveedor() + "\n\n------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            } else if (productos.get(i).getProveedor().getNombre()==null) {
+                contador++;
+            }
+        }
+        textArea.append("\n\t Existen " + contador+" productos sin proveedor");
+
     }
 }
 
