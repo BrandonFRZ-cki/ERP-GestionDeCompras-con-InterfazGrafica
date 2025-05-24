@@ -90,11 +90,13 @@ public class ListadoSolicitudes extends Frame {
         add(tfSolicitud);
         add(bAcceder);
 
-        VistaSolicitud vistaSolicitud = new VistaSolicitud(listsController);
+
         bAcceder.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                VistaSolicitud vistaSolicitud = new VistaSolicitud(listsController);
                 vistaSolicitud.setVisible(true);
+
             }
         });
     }
