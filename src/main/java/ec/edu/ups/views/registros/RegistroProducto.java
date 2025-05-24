@@ -27,7 +27,6 @@ public class RegistroProducto extends Frame {
     private Checkbox cbIva;
 
     private Button btnCrearProducto;
-    private Button btnCrearProductoNuevoProveedor;
 
     private TextField tfNombreProveedor;
     private TextField tfApellidoProveedor;
@@ -262,7 +261,7 @@ public class RegistroProducto extends Frame {
                                                                 tfCalleSec.getText(),
                                                                 tfNumeracion.getText(),
                                                                 tfCiudad.getText(),
-                                                                tfCiudad.getText(),
+                                                                tfProvincia.getText(),
                                                                 tfPais.getText()
                                                         ),
                                                         tfTelefonoProveedor.getText()
