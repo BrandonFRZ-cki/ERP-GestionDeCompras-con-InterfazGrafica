@@ -205,6 +205,7 @@ public class RegistroProveedor extends Frame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
+                limpiarCampos();
                 dispose();
             }
             @Override
@@ -227,5 +228,18 @@ public class RegistroProveedor extends Frame {
     private boolean datosProveedorIncompletos() {
         return tfIdProveedor.getText().isEmpty()||tfNombreProveedor.getText().isEmpty()||tfApellidoProveedor.getText().isEmpty()||tfDetalleProveedor.getText().isEmpty()
                 ||tfTelefonoProveedor.getText().isEmpty()||tfCalle1.getText().isEmpty()||tfCalleSec.getText().isEmpty()||tfNumeracion.getText().isEmpty()||tfCiudad.getText().isEmpty()||tfProvincia.getText().isEmpty()||tfPais.getText().isEmpty();
+    }
+    private void limpiarCampos(){
+        tfIdProveedor.setText("");
+        tfNombreProveedor.setText("");
+        tfApellidoProveedor.setText("");
+        tfDetalleProveedor.setText("");
+        tfTelefonoProveedor.setText("");
+        tfCalle1.setText("");
+        tfCalleSec.setText("");
+        tfNumeracion.setText("");
+        tfCiudad.setText("");
+        tfProvincia.setText("");
+        tfPais.setText("");
     }
 }

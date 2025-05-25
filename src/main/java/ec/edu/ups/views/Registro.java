@@ -3,7 +3,7 @@ package ec.edu.ups.views;
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.views.registros.RegistroProducto;
 import ec.edu.ups.views.registros.RegistroProveedor;
-import ec.edu.ups.views.registros.RegistroSolicitud;
+import ec.edu.ups.views.registros.solicitud.ValidacionEmpleado;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -81,7 +81,7 @@ public class  Registro extends Frame {
 
         RegistroProducto registroProducto = new RegistroProducto(listsController);
         RegistroProveedor registroProveedor = new RegistroProveedor(listsController);
-        RegistroSolicitud registroSolicitud = new RegistroSolicitud();
+        ValidacionEmpleado validacionEmpleado = new ValidacionEmpleado(listsController);
         bProveedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,7 +97,7 @@ public class  Registro extends Frame {
         bSulicitud.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                registroSolicitud.setVisible(true);
+                validacionEmpleado.setVisible(true);
             }
         });
     }

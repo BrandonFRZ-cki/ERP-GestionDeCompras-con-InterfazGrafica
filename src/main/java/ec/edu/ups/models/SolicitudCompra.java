@@ -17,11 +17,6 @@ public class SolicitudCompra implements Calculable {
     private List<DetalleCompra> detalles;
     private double total;
 
-
-    public SolicitudCompra(){
-        detalles = new ArrayList<>();
-    }
-
     public SolicitudCompra(int idSolicitud, Empleado solicitante, EstadoSolicitud estado, String motivo, GregorianCalendar fechaCreacion, String detalleMaterialesSolcitados, String observaciones) {
         this.idSolicitud = idSolicitud;
         this.solicitante = solicitante;
@@ -137,7 +132,7 @@ public class SolicitudCompra implements Calculable {
     @Override
     public String toString() {
         return
-                "\n | Numero: "+ idSolicitud+ "  | " + (fechaCreacion != null ? new SimpleDateFormat("dd/MM/yyyy").format(fechaCreacion.getTime()) : "null") + " | " + estado + " | "+  detalleMaterialesSolcitados +" | Precio: $ "+ calcularCostoTotal() +
+                "\n | Numero: "+ idSolicitud+ "  | " + (fechaCreacion != null ? new SimpleDateFormat("dd/MM/yyyy").format(fechaCreacion.getTime()) : "null") + " | " + estado + " | "+  detalleMaterialesSolcitados +" | Precio: $ "+ calcularCostoTotal() + detalles+
                 "\n\n-------------------------------------------------------------------------------------------------------------------------------------\n"
 
         ;

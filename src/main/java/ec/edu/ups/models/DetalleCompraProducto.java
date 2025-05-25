@@ -4,10 +4,6 @@ public class DetalleCompraProducto extends DetalleCompra implements Calculable {
     private UnidadMedida unidadMedida;
     private Producto producto;
 
-    public DetalleCompraProducto() {
-
-    }
-
     public DetalleCompraProducto(int id, int cantidad, UnidadMedida unidadMedida, Producto producto) {
         super(id, cantidad);
         this.unidadMedida = unidadMedida;
@@ -51,6 +47,6 @@ public class DetalleCompraProducto extends DetalleCompra implements Calculable {
     public String toString() {
         return  super.toString()+
                 "| " + unidadMedida +
-                " | \n\t" + producto ;
+                " | " + producto.getNombre() ;
     }
 }
