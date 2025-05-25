@@ -54,14 +54,11 @@ public class DetalleCompraPaquete extends DetalleCompra implements Calculable{
         return costoTotal;
     }
 
-
-
-
     @Override
     public String toString() {
         return "⨷ PAQUETE:"+
                 super.toString() +
                 "| Descuento " + descuento +
-                " % |\n Lista de Productos en el paquete : \n" + productos ;
+                " % | Productos en el paquete : \n" + productos ;
     }
 }

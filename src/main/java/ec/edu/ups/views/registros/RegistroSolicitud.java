@@ -57,7 +57,7 @@ public class RegistroSolicitud extends Frame {
         setResizable(false);
 
         addDetalleProducto = new AddDetalleProducto(listsController, contadorDetalle, solicitudCompra);
-        addDetallePaquete = new AddDetallePaquete();
+        addDetallePaquete = new AddDetallePaquete(listsController,contadorDetalle, solicitudCompra);
 
         //---------------------------------------------------------------Encabezado
         lbVentana = new Label("Nueva Solicitud");
@@ -158,6 +158,14 @@ public class RegistroSolicitud extends Frame {
         btGenerarSolicitud = new Button("Generar Solicitud");
         btGenerarSolicitud.setBounds(100, 800, 200, 30);
         add(btGenerarSolicitud);
+
+        btDetallePaquete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contadorDetalle++;
+                addDetallePaquete.setVisible(true);
+            }
+        });
 
         btDetalleProducto.addActionListener(new ActionListener() {
             @Override

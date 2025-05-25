@@ -47,6 +47,6 @@ public class DetalleCompraProducto extends DetalleCompra implements Calculable {
     public String toString() {
         return  super.toString()+
                 "| " + unidadMedida +
-                " | " + producto.getNombre() ;
+                " | " + producto.getNombre()+" | " +producto.getPrecioUnitario() ;
     }
 }
