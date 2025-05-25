@@ -13,7 +13,9 @@ import java.text.SimpleDateFormat;
 
 public class VistaSolicitud extends Frame {
 
-    private Color azulPersonalizado = new Color(0, 100, 128);
+    private Panel header;
+    private Color azulPersonalizado = new Color(0,100,128);
+    private Label lbVentana;
 
     // Campos para llenar con datos
     private TextField tfIdSolicitud;
@@ -39,77 +41,78 @@ public class VistaSolicitud extends Frame {
         setResizable(false);
         setLocationRelativeTo(null);
 
+        lbVentana = new Label("Solicitud");
+        lbVentana.setFont(new Font("Arial", Font.BOLD, 20));
+        lbVentana.setForeground(Color.white);
         // ---------------------- Header -------------------------
-        Panel header = new Panel(null);
+        header = new Panel();
+        header.setLayout(null);
         header.setBackground(azulPersonalizado);
-        header.setBounds(0, 0, 900, 40);
-        Label titulo = new Label("Solicitud");
-        titulo.setFont(new Font("Arial", Font.BOLD, 16));
-        titulo.setForeground(Color.white);
-        titulo.setBounds(10, 10, 200, 20);
-        header.add(titulo);
+        header.setBounds(0, 0, 900, 100);
+        header.add(lbVentana);
+        lbVentana.setBounds(20,15,900,100);
         add(header);
 
         // ---------------------- Campos superiores -------------------------
         Label lbIdSolicitud = new Label("Id solicitud:");
-        lbIdSolicitud.setBounds(10, 50, 100, 20);
+        lbIdSolicitud.setBounds(50, 110, 100, 20);
         add(lbIdSolicitud);
         tfIdSolicitud = new TextField();
-        tfIdSolicitud.setBounds(10, 70, 170, 25);
+        tfIdSolicitud.setBounds(50, 130, 170, 25);
         tfIdSolicitud.setEditable(false);
         add(tfIdSolicitud);
 
         Label lbSolicitante = new Label("Solicitante:");
-        lbSolicitante.setBounds(200, 50, 100, 20);
+        lbSolicitante.setBounds(250, 110, 100, 20);
         add(lbSolicitante);
         tfSolicitante = new TextField();
-        tfSolicitante.setBounds(200, 70, 170, 25);
+        tfSolicitante.setBounds(250, 130, 170, 25);
         tfSolicitante.setEditable(false);
         add(tfSolicitante);
 
         Label lbEstado = new Label("Estado:");
-        lbEstado.setBounds(390, 50, 100, 20);
+        lbEstado.setBounds(440, 110, 100, 20);
         add(lbEstado);
         tfEstado = new TextField();
-        tfEstado.setBounds(390, 70, 170, 25);
+        tfEstado.setBounds(440, 130, 170, 25);
         tfEstado.setEditable(false);
         add(tfEstado);
 
         Label lbFecha = new Label("Fecha:");
-        lbFecha.setBounds(580, 50, 100, 20);
+        lbFecha.setBounds(640, 110, 100, 20);
         add(lbFecha);
         tfFecha = new TextField();
-        tfFecha.setBounds(580, 70, 170, 25);
+        tfFecha.setBounds(640, 130, 170, 25);
         tfFecha.setEditable(false);
         add(tfFecha);
 
         Label lbMotivo = new Label("Motivo:");
-        lbMotivo.setBounds(10, 100, 100, 20);
+        lbMotivo.setBounds(50, 160, 50, 20);
         add(lbMotivo);
         tfMotivo = new TextField();
-        tfMotivo.setBounds(10, 120, 170, 25);
+        tfMotivo.setBounds(50, 180, 800, 25);
         tfMotivo.setEditable(false);
         add(tfMotivo);
 
         Label lbDetalle = new Label("Detalle:");
-        lbDetalle.setBounds(200, 100, 100, 20);
+        lbDetalle.setBounds(50, 210, 50, 20);
         add(lbDetalle);
         tfDetalle = new TextField();
-        tfDetalle.setBounds(200, 120, 170, 25);
+        tfDetalle.setBounds(50, 230, 800, 25);
         tfDetalle.setEditable(false);
         add(tfDetalle);
 
         // ---------------------- Tabla simulada -------------------------
         tabla = new Panel(null);
         tabla.setBackground(new Color(220, 220, 220));
-        tabla.setBounds(30, 160, 820, 200);
+        tabla.setBounds(50, 275, 800, 300);
 
         Label lbDescuento = new Label("Descuento:");
-        lbDescuento.setBounds(560, 150, 80, 20); // Debajo del campo de Precio Unitario
+        lbDescuento.setBounds(560, 210, 80, 20); // Debajo del campo de Precio Unitario
         tabla.add(lbDescuento);
 
         tfDescuento = new TextField();
-        tfDescuento.setBounds(650, 150, 100, 25); // Alineado con Precio Compra
+        tfDescuento.setBounds(10, 200, 100, 25); // Alineado con Precio Compra
         tfDescuento.setEditable(false);
         tabla.add(tfDescuento);
 
@@ -117,19 +120,19 @@ public class VistaSolicitud extends Frame {
 
         // ---------------------- Observación -------------------------
         Label lbObservacion = new Label("Observacion:");
-        lbObservacion.setBounds(10, 370, 100, 20);
+        lbObservacion.setBounds(50, 620, 100, 20);
         add(lbObservacion);
         tfObservacion = new TextField();
-        tfObservacion.setBounds(10, 390, 850, 30);
+        tfObservacion.setBounds(50, 640, 800, 30);
         tfObservacion.setEditable(false);
         add(tfObservacion);
 
         // ---------------------- Total -------------------------
         Label lbTotal = new Label("Total:");
-        lbTotal.setBounds(10, 430, 100, 20);
+        lbTotal.setBounds(650, 600, 50, 20);
         add(lbTotal);
         tfTotal = new TextField();
-        tfTotal.setBounds(10, 450, 850, 30);
+        tfTotal.setBounds(700, 600, 100, 30);
         tfTotal.setEditable(false);
         add(tfTotal);
 
