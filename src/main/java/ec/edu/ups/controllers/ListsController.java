@@ -57,5 +57,14 @@ public class ListsController {
         solicitudes.add(solicitud);
         showConsole.showMessage("\n\t* Solicitud agregada exitosamente\n\t* Solicitud de Compra Modificada");
     }
+    public SolicitudCompra buscarSolicitudPorId(int id) {
+        for (SolicitudCompra solicitud : solicitudes) {
+            if (solicitud.getIdSolicitud() == id) {
+                return solicitud;
+            }
+        }
+        return null;
+    }
+
 
 }

@@ -94,9 +94,18 @@ public class ListadoSolicitudes extends Frame {
         bAcceder.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VistaSolicitud vistaSolicitud = new VistaSolicitud(listsController);
-                vistaSolicitud.setVisible(true);
-
+                try {
+                    int id = Integer.parseInt(tfSolicitud.getText().trim());
+                    SolicitudCompra solicitud = listsController.buscarSolicitudPorId(id);
+                    if (solicitud != null) {
+                        VistaSolicitud vistaSolicitud = new VistaSolicitud(listsController, solicitud);
+                        vistaSolicitud.setVisible(true);
+                    } else {
+                        System.out.println("Solicitud no encontrada.");
+                    }
+                } catch (NumberFormatException ex) {
+                    System.out.println("Por favor ingrese un número válido.");
+                }
             }
         });
     }
