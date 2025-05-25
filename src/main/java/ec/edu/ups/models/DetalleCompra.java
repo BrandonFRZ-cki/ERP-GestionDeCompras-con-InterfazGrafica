@@ -50,8 +50,6 @@ public abstract class DetalleCompra implements Calculable {
 
     @Override
     public String toString() {
-        return  "\n\t | n# : " + id +
-                " | Cantidad : " + cantidad +
-                " | ";
+        return  "\n-";
     }
 }
