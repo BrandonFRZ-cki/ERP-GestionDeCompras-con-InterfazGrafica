@@ -22,7 +22,7 @@
 
 La estructura del sistema se basa en una arquitectura modular, compuesta por diversas clases y paquetes que separan claramente la lógica de negocio, la interfaz de usuario y la gestión de datos. Esta separación no solo mejora la eficiencia del sistema, sino que también garantiza una mayor claridad en el código y facilita su mantenimiento y escalabilidad.
 
-Además, se ha incorporado una interfaz gráfica que mejora significativamente la experiencia del usuario, haciendo que el sistema no solo sea funcional, sino también visualmente atractivo y fácil de utilizar. 
+Además, se ha incorporado una interfaz gráfica que mejora significativamente la experiencia del usuario, haciendo que el sistema no solo sea funcional, sino también visualmente atractivo y fácil de utilizar.
 
 Crea interfaces gráficas de usuario empleando técnicas de modelado de objetos.
 
@@ -36,9 +36,9 @@ Crea interfaces gráficas de usuario empleando técnicas de modelado de objetos.
 - **4:** Aprobacion
 - **5:** Salir
 - **Opción:**
-  
+
 ## Descripción de las Opciones del Menú:
-- **1:** Registrar 
+- **1:** Registrar
 
 **-** La ventana "Registro" permite al usuario ingresar nuevos productos, proveedores y solicitudes de compra en el sistema de gestión. Presenta un diseño sencillo con un encabezado y tres botones que abren ventanas específicas para cada tipo de registro. Está conectada al controlador principal (ListsController), asegurando que los datos ingresados se integren correctamente al sistema. Esta ventana facilita un acceso rápido y organizado para registrar la información necesaria de manera eficiente.
 
@@ -46,7 +46,7 @@ Crea interfaces gráficas de usuario empleando técnicas de modelado de objetos.
 
 **-** La ventana "Listado" permite al usuario visualizar de forma organizada los proveedores, productos y solicitudes de compra registrados en el sistema. Presenta un diseño simple con un encabezado azul y tres botones principales que, al ser presionados, abren ventanas específicas con la información correspondiente. Cada listado se muestra en una nueva interfaz gráfica, conectada al controlador principal (ListsController), lo que garantiza que los datos mostrados estén actualizados. En el caso de las solicitudes, antes de mostrarse, se actualiza automáticamente la lista para reflejar los registros más recientes. Esta ventana facilita la consulta rápida de datos y contribuye a una mejor organización del sistema de gestión de compras.
 
-- **3:** Busqueda 
+- **3:** Busqueda
 
 **-** La ventana "Búsqueda" permite al usuario localizar información específica dentro del sistema de gestión de compras. Presenta un diseño claro con tres botones que ofrecen las siguientes opciones: buscar proveedor por ID, buscar producto por nombre y buscar solicitud por número. Al hacer clic en cualquiera de estos botones, se abre una nueva ventana donde el usuario puede ingresar el dato requerido y obtener los resultados correspondientes. La búsqueda se realiza en tiempo real gracias a la conexión con el controlador principal (ListsController), lo que garantiza precisión y rapidez en la consulta. Esta función mejora la eficiencia del sistema, permitiendo encontrar registros concretos de manera ágil y sencilla.
 
@@ -62,7 +62,7 @@ Crea interfaces gráficas de usuario empleando técnicas de modelado de objetos.
 ---
 
 # 📊 Rúbrica de Evaluación (8 puntos)
-- **Criterio de Evaluación	Puntaje:** 
+- **Criterio de Evaluación	Puntaje:**
 - **1:** Construcción de la interfaz gráfica utilizando únicamente AWT	1.0 pt
 - **2:** Diseño funcional e intuitivo de la GUI	1.0 pt
 - **3:** Integración correcta con la lógica de negocio (reutilización código)	1.0 pt
