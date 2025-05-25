@@ -18,24 +18,12 @@ public class Proveedor extends Persona {
         return detalleProvedor;
     }
 
-    public void setDetalleProvedor(String detalleProvedor) {
-        this.detalleProvedor = detalleProvedor;
-    }
-
     public Direccion getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
-    }
-
     public String getTelefono() {
         return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
     @Override

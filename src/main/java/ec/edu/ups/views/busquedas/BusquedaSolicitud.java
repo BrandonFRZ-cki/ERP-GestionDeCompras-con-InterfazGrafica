@@ -3,6 +3,7 @@ package ec.edu.ups.views.busquedas;
 import ec.edu.ups.controllers.Busqueda;
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.models.SolicitudCompra;
+import ec.edu.ups.views.VistaSolicitud;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -83,12 +84,13 @@ public class BusquedaSolicitud extends Frame {
             public void actionPerformed(ActionEvent e) {
                 int numero = Integer.parseInt(txtBusqueda.getText());
                 SolicitudCompra solicitudEncon = busqueda.solicitudPorNumero(listsController.getSolicitudes(),numero);
+
                 if (solicitudEncon == null){
                     System.out.println("No se a encontrado la solicitud");
                     resultado.noEncontrado();
                 }else {
-                    System.out.println(solicitudEncon);
-                    resultado.mostrarResultado(solicitudEncon);
+                    VistaSolicitud vistaSolicitud =new VistaSolicitud(listsController,solicitudEncon);
+                    vistaSolicitud.setVisible(true);
                 }
             }
         });
