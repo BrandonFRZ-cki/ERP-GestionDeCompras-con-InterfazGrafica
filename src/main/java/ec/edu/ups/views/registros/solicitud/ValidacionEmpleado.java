@@ -1,7 +1,8 @@
-package ec.edu.ups.views.registros;
+package ec.edu.ups.views.registros.solicitud;
 
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.views.busquedas.Resultado;
+import ec.edu.ups.views.registros.RegistroSolicitud;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

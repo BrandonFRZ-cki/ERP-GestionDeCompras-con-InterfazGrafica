@@ -3,6 +3,7 @@ package ec.edu.ups.views.registros.solicitud;
 import ec.edu.ups.controllers.ListsController;
 import ec.edu.ups.models.DetalleCompraProducto;
 import ec.edu.ups.models.Producto;
+import ec.edu.ups.models.SolicitudCompra;
 import ec.edu.ups.models.UnidadMedida;
 
 import java.awt.*;
@@ -10,13 +11,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.List;
 
 public class AddDetalleProducto extends Frame {
     private ListsController listsController;
     private Color azulPersonalizado = new Color(0, 100, 128);
     private Label lbVentana;
     private Panel header;
-    private TextArea taControl;
 
     private Choice chProducto;
     private TextField tfCantidad;
@@ -24,12 +25,13 @@ public class AddDetalleProducto extends Frame {
     private Button btAgregar;
     private int contadorDetalle;
 
-    private DetalleCompraProducto detalleProducto;
+    private SolicitudCompra solicitudCompra;
 
-    public AddDetalleProducto(ListsController listsController, int contadorDetalle,TextArea taControl) {
+
+    public AddDetalleProducto(ListsController listsController, int contadorDetalle, SolicitudCompra solicitudCompra) {
         this.listsController = listsController;
         this.contadorDetalle = contadorDetalle;
-        this.taControl = taControl;
+        this.solicitudCompra = solicitudCompra;
 
         setTitle("Producto");
         setLayout(null);
@@ -90,44 +92,28 @@ public class AddDetalleProducto extends Frame {
         btAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    int cantidad = Integer.parseInt(tfCantidad.getText());
-                    UnidadMedida unidadMedidaSeleccionada = UnidadMedida.valueOf(chUnidadMedida.getSelectedItem());
 
-                    Producto productoSeleccionado = null;
-                    for (Producto producto : listsController.getProductos()) {
-                        if (chProducto.getSelectedItem().equals(producto.getNombre())) {
-                            productoSeleccionado = producto;
-                            break;
-                        }
+                int cantidad = Integer.parseInt(tfCantidad.getText());
+                UnidadMedida unidadMedidaSeleccionada = UnidadMedida.valueOf(chUnidadMedida.getSelectedItem());
+
+                Producto productoSeleccionado = null;
+                for (Producto producto : listsController.getProductos()) {
+                    if (chProducto.getSelectedItem().equals(producto.getNombre())) {
+                        productoSeleccionado = producto;
+                        break;
                     }
-
-                    if (productoSeleccionado == null) {
-                        taControl.setForeground(Color.RED);
-                        taControl.setText(taControl.getText() + "\nERROR: Debe seleccionar un producto válido.");
-                        return;
-                    }
-
-                    detalleProducto = new DetalleCompraProducto(
-                            contadorDetalle,
-                            cantidad,
-                            unidadMedidaSeleccionada,
-                            productoSeleccionado
-                    );
-
-                    taControl.setForeground(new Color(0, 102, 51));
-                    taControl.setText(taControl.getText() + "\nProducto agregado correctamente: " + productoSeleccionado.getNombre());
-
-                    tfCantidad.setText("");
-                    dispose();
-
-                } catch (NumberFormatException ex) {
-                    taControl.setForeground(Color.RED);
-                    taControl.setText(taControl.getText() + "\nERROR: Ingrese un número válido en la cantidad.");
-                } catch (IllegalArgumentException ex) {
-                    taControl.setForeground(Color.RED);
-                    taControl.setText(taControl.getText() + "\nERROR: Seleccione una unidad de medida válida.");
                 }
+                solicitudCompra.addDetalle(
+                        new DetalleCompraProducto(
+                                contadorDetalle,
+                                cantidad,
+                                unidadMedidaSeleccionada,
+                                productoSeleccionado
+                        )
+                );
+                tfCantidad.setText("");
+                dispose();
+
             }
         });
 
@@ -141,9 +127,6 @@ public class AddDetalleProducto extends Frame {
         }
     }
 
-    public DetalleCompraProducto getDetalleProducto() {
-        return detalleProducto;
-    }
 
 
 }
