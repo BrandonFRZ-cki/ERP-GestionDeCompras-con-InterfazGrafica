@@ -17,6 +17,9 @@
 ![Practica1_POO drawio (3)](https://github.com/user-attachments/assets/9a649960-3820-427a-8390-1aa7a4e4edd2)
 
 ---
+# Figma
+![img.png](img.png)
+---
 # Objetivo
 **-** El presente proyecto consiste en el desarrollo de un sistema de gestión de compras orientado a facilitar el registro, control y organización de productos, proveedores y solicitudes de compra dentro de una empresa. Este sistema permite la interacción directa con el usuario para llevar a cabo tareas como el registro, listado y gestión de los diferentes elementos que intervienen en el proceso de adquisición de recursos.
 
