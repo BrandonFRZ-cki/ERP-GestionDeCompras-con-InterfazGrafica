@@ -18,7 +18,7 @@
 
 ---
 # Figma
-![img.png](img.png)
+![img_1.png](img_1.png)
 ---
 # Objetivo
 **-** El presente proyecto consiste en el desarrollo de un sistema de gestión de compras orientado a facilitar el registro, control y organización de productos, proveedores y solicitudes de compra dentro de una empresa. Este sistema permite la interacción directa con el usuario para llevar a cabo tareas como el registro, listado y gestión de los diferentes elementos que intervienen en el proceso de adquisición de recursos.
